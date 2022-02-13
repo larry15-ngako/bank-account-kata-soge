@@ -21,7 +21,7 @@ public class TransactionRepositoryTest {
     private TransactionRepository transactionRepository;
     @Mock
     Clock clock;
-    public static final String TODAY = "13/02/2022";
+    private static final String TODAY = "13/02/2022";
     @Before
     public void initialise() {
         transactionRepository = new TransactionRepository(clock);

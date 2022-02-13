@@ -3,9 +3,11 @@ package com.soge.domain;
 import com.soge.infrastructure.TransactionRepository;
 
 public class BankAccount {
-    TransactionRepository transactionRepository;
-    public BankAccount(TransactionRepository transactionRepository) {
+    private TransactionRepository transactionRepository;
+    private StatementPrinter statementPrinter;
+    public BankAccount(TransactionRepository transactionRepository, StatementPrinter statementPrinter) {
         this.transactionRepository = transactionRepository;
+        this.statementPrinter = statementPrinter;
     }
 
     public void doDeposit(int amount) {
@@ -17,5 +19,6 @@ public class BankAccount {
     }
 
     public void printStatement() {
+        statementPrinter.printStatement(transactionRepository.findAllTransaction());
     }
 }
